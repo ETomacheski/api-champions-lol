@@ -1,6 +1,6 @@
 # Projeto de Coleta de Dados - Trabalho 2
 
-Este projeto tem como objetivo coletar dados de campeões do jogo League of Legends e disponibilizá-los através de uma API.
+Este projeto tem como objetivo coletar dados de campeões do jogo League of Legends e disponibilizá-los através de uma API. O projeto foi desenvolvido com base na disciplina de coleta de dados e tem como autores: Eduardo Tomacheski, Eduardo Rubin, Enzo Stefanello.
 
 ## Como Rodar o Projeto
 
