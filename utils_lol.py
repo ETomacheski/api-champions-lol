@@ -32,6 +32,10 @@ def addChampion(champion):
     if len(notFoundMandatoryFields) > 0:
         return {"erro": f"Campeão não possui os campos obrigatórios: {notFoundMandatoryFields}"}
     
+    existsChampion = getChampionByName(champion['Name'])
+    if existsChampion is not None:
+        return {"erro": "Campeão já cadastrado"}
+    
     with open('champions.json', 'r') as arquivo:
         champions = json.load(arquivo)
     
