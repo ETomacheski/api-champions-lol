@@ -1,0 +1,1008 @@
+{
+	"info": {
+		"_postman_id": "e8afc76d-9982-49a1-b17a-ab266430bb59",
+		"name": "Champios api",
+		"description": "# 🚀 Get started here\n\nThis collection guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this collection**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these request types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT and PATCH requests.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a variable called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more scripts in \"Tests\" to verify if the API works as expected and execute flows.\n    \n\n## ℹ️ Resources\n\n[Building requests](https://learning.postman.com/docs/sending-requests/requests/)  \n[Authorizing requests](https://learning.postman.com/docs/sending-requests/authorization/)  \n[Using variables](https://learning.postman.com/docs/sending-requests/variables/)  \n[Managing environments](https://learning.postman.com/docs/sending-requests/managing-environments/)  \n[Writing scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11450405"
+	},
+	"item": [
+		{
+			"name": "Get champion by name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/champions/Zyra",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"champions",
+						"Zyra"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have name=Zyra).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": [
+				{
+					"name": "Get data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/champions/Teste",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"champions",
+								"Teste"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/3.0.3 Python/3.12.4"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 20 Sep 2024 19:16:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "614"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"AS ratio\": 0.625,\n    \"Armor per lvl\": 4.2,\n    \"Attack damage\": 53,\n    \"Attack damage per lvl\": 3.2,\n    \"Attack range\": 575,\n    \"Attack speed\": 0.681,\n    \"Attack speed per lvl\": 2.11,\n    \"Base HP\": 574,\n    \"Base armor\": 29,\n    \"Base magic resistance\": 30,\n    \"Base mana\": 418,\n    \"HP per lvl\": 93,\n    \"HP regeneration\": 5.5,\n    \"HP regeneration per lvl\": 0.5,\n    \"Magic resistance per lvl\": 1.3,\n    \"Mana per lvl\": 25,\n    \"Mana regeneration\": 7,\n    \"Mana regeneration per lvl\": 0.8,\n    \"Movement speed\": 340,\n    \"Name\": \"Zyra\",\n    \"Range type\": \"Ranged\",\n    \"Resourse type\": \"Mana\",\n    \"Role\": \"Support\",\n    \"Tags\": \"Mage,Support\"\n}"
+				},
+				{
+					"name": "Get champion by name champion not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/champions/Zyraqweqw",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"champions",
+								"Zyraqweqw"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Sep 2024 15:08:26 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8c6af87a6bae87ec-POA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "7cda8c15-64a0-48f5"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"erro\": \"Campeão não encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get champions",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/champions",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"champions"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": [
+				{
+					"name": "Get champions",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/champions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"champions"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Sep 2024 15:08:50 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8c6af90eeca187ec-POA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "9be6006e-dbb0-4b6f"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"AS ratio\": 0.651,\n        \"Armor per lvl\": 4.8,\n        \"Attack damage\": 60,\n        \"Attack damage per lvl\": 5,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.651,\n        \"Attack speed per lvl\": 2.5,\n        \"Base HP\": 650,\n        \"Base armor\": 38,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 0,\n        \"HP per lvl\": 114,\n        \"HP regeneration\": 3,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 345,\n        \"Name\": \"Aatrox\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Blood Well\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Fighter\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 53,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.668,\n        \"Attack speed per lvl\": 2.2,\n        \"Base HP\": 590,\n        \"Base armor\": 21,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 418,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 2.5,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 25,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 330,\n        \"Name\": \"Ahri\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Mage,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 62,\n        \"Attack damage per lvl\": 3.3,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 3.2,\n        \"Base HP\": 600,\n        \"Base armor\": 23,\n        \"Base magic resistance\": 37,\n        \"Base mana\": 200,\n        \"HP per lvl\": 119,\n        \"HP regeneration\": 9,\n        \"HP regeneration per lvl\": 0.9,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 50,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 345,\n        \"Name\": \"Akali\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Energy\",\n        \"Role\": \"Top,Middle\",\n        \"Tags\": \"Assassin\"\n    },\n    {\n        \"AS ratio\": 0.4,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 52,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 500,\n        \"Attack speed\": 0.638,\n        \"Attack speed per lvl\": 4,\n        \"Base HP\": 630,\n        \"Base armor\": 26,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 350,\n        \"HP per lvl\": 107,\n        \"HP regeneration\": 3.75,\n        \"HP regeneration per lvl\": 0.65,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 8.2,\n        \"Mana regeneration per lvl\": 0.7,\n        \"Movement speed\": 330,\n        \"Name\": \"Akshan\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Marksman,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 62,\n        \"Attack damage per lvl\": 3.75,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2.125,\n        \"Base HP\": 685,\n        \"Base armor\": 47,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 350,\n        \"HP per lvl\": 120,\n        \"HP regeneration\": 8.5,\n        \"HP regeneration per lvl\": 0.85,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 8.5,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 330,\n        \"Name\": \"Alistar\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Tank,Support\"\n    },\n    {\n        \"AS ratio\": 0.638,\n        \"Armor per lvl\": 4,\n        \"Attack damage\": 57,\n        \"Attack damage per lvl\": 3.8,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.736,\n        \"Attack speed per lvl\": 2.18,\n        \"Base HP\": 685,\n        \"Base armor\": 33,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 285,\n        \"HP per lvl\": 94,\n        \"HP regeneration\": 9,\n        \"HP regeneration per lvl\": 0.85,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 7.4,\n        \"Mana regeneration per lvl\": 0.55,\n        \"Movement speed\": 335,\n        \"Name\": \"Amumu\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle,Support\",\n        \"Tags\": \"Tank,Support\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.9,\n        \"Attack damage\": 51,\n        \"Attack damage per lvl\": 3.2,\n        \"Attack range\": 600,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 1.68,\n        \"Base HP\": 550,\n        \"Base armor\": 21,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 495,\n        \"HP per lvl\": 92,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 45,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 325,\n        \"Name\": \"Anivia\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 50,\n        \"Attack damage per lvl\": 2.65,\n        \"Attack range\": 625,\n        \"Attack speed\": 0.61,\n        \"Attack speed per lvl\": 1.36,\n        \"Base HP\": 560,\n        \"Base armor\": 19,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 418,\n        \"HP per lvl\": 102,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 25,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 335,\n        \"Name\": \"Annie\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Mage,Support\"\n    },\n    {\n        \"AS ratio\": 0.64,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 55,\n        \"Attack damage per lvl\": 2.3,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.64,\n        \"Attack speed per lvl\": 2.1,\n        \"Base HP\": 580,\n        \"Base armor\": 26,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 348,\n        \"HP per lvl\": 102,\n        \"HP regeneration\": 3.25,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 42,\n        \"Mana regeneration\": 6.5,\n        \"Mana regeneration per lvl\": 0.4,\n        \"Movement speed\": 325,\n        \"Name\": \"Aphelios\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom\",\n        \"Tags\": \"Marksman\"\n    },\n    {\n        \"AS ratio\": 0.658,\n        \"Armor per lvl\": 4.6,\n        \"Attack damage\": 59,\n        \"Attack damage per lvl\": 2.95,\n        \"Attack range\": 600,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 3.33,\n        \"Base HP\": 640,\n        \"Base armor\": 26,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 280,\n        \"HP per lvl\": 101,\n        \"HP regeneration\": 3.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 35,\n        \"Mana regeneration\": 7,\n        \"Mana regeneration per lvl\": 0.65,\n        \"Movement speed\": 325,\n        \"Name\": \"Ashe\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom,Support\",\n        \"Tags\": \"Marksman,Support\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4,\n        \"Attack damage\": 55,\n        \"Attack damage per lvl\": 3.2,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 1.5,\n        \"Base HP\": 620,\n        \"Base armor\": 22,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 530,\n        \"HP per lvl\": 90,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.75,\n        \"Movement speed\": 335,\n        \"Name\": \"Aurelion Sol\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Mage\"\n    },\n    {\n        \"AS ratio\": 0.694,\n        \"Armor per lvl\": 5,\n        \"Attack damage\": 52,\n        \"Attack damage per lvl\": 3.5,\n        \"Attack range\": 525,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 6,\n        \"Base HP\": 550,\n        \"Base armor\": 22,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 320,\n        \"HP per lvl\": 119,\n        \"HP regeneration\": 3.5,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 335,\n        \"Name\": \"Azir\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Mage,Marksman\"\n    },\n    {\n        \"AS ratio\": 0.658,\n        \"Armor per lvl\": 5,\n        \"Attack damage\": 52,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 500,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 2,\n        \"Base HP\": 630,\n        \"Base armor\": 34,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 350,\n        \"HP per lvl\": 103,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 50,\n        \"Mana regeneration\": 6,\n        \"Mana regeneration per lvl\": 0.45,\n        \"Movement speed\": 330,\n        \"Name\": \"Bard\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Support,Mage\"\n    },\n    {\n        \"AS ratio\": 0.85,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 60,\n        \"Attack damage per lvl\": 1.5,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.85,\n        \"Attack speed per lvl\": 0,\n        \"Base HP\": 610,\n        \"Base armor\": 32,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 60,\n        \"HP per lvl\": 99,\n        \"HP regeneration\": 6,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 340,\n        \"Name\": \"Bel'Veth\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Fighter\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 62,\n        \"Attack damage per lvl\": 3.5,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 1.13,\n        \"Base HP\": 600,\n        \"Base armor\": 37,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 267,\n        \"HP per lvl\": 109,\n        \"HP regeneration\": 7.5,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 8.5,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 325,\n        \"Name\": \"Blitzcrank\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Tank,Support\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 57,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.681,\n        \"Attack speed per lvl\": 2,\n        \"Base HP\": 570,\n        \"Base armor\": 27,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 469,\n        \"HP per lvl\": 105,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 21,\n        \"Mana regeneration\": 10.65,\n        \"Mana regeneration per lvl\": 0.6,\n        \"Movement speed\": 340,\n        \"Name\": \"Brand\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle,Support,Middle\",\n        \"Tags\": \"Mage,Support\"\n    },\n    {\n        \"AS ratio\": 0.644,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 55,\n        \"Attack damage per lvl\": 3.2,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.644,\n        \"Attack speed per lvl\": 3.5,\n        \"Base HP\": 610,\n        \"Base armor\": 47,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 311,\n        \"HP per lvl\": 112,\n        \"HP regeneration\": 8.5,\n        \"HP regeneration per lvl\": 1,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 45,\n        \"Mana regeneration\": 7,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 335,\n        \"Name\": \"Braum\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Tank,Support\"\n    },\n    {\n        \"AS ratio\": 0.669,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 60,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.644,\n        \"Attack speed per lvl\": 2,\n        \"Base HP\": 590,\n        \"Base armor\": 30,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 0,\n        \"HP per lvl\": 95,\n        \"HP regeneration\": 0,\n        \"HP regeneration per lvl\": 0,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 340,\n        \"Name\": \"Briar\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Fury\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Fighter,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.594,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 60,\n        \"Attack damage per lvl\": 3.8,\n        \"Attack range\": 650,\n        \"Attack speed\": 0.681,\n        \"Attack speed per lvl\": 4,\n        \"Base HP\": 580,\n        \"Base armor\": 27,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 315,\n        \"HP per lvl\": 107,\n        \"HP regeneration\": 3.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 7.4,\n        \"Mana regeneration per lvl\": 0.7,\n        \"Movement speed\": 325,\n        \"Name\": \"Caitlyn\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom\",\n        \"Tags\": \"Marksman\"\n    },\n    {\n        \"AS ratio\": 0.644,\n        \"Armor per lvl\": 5,\n        \"Attack damage\": 68,\n        \"Attack damage per lvl\": 3.8,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.644,\n        \"Attack speed per lvl\": 2.5,\n        \"Base HP\": 670,\n        \"Base armor\": 35,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 339,\n        \"HP per lvl\": 99,\n        \"HP regeneration\": 8.5,\n        \"HP regeneration per lvl\": 0.8,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 52,\n        \"Mana regeneration\": 8.15,\n        \"Mana regeneration per lvl\": 0.75,\n        \"Movement speed\": 340,\n        \"Name\": \"Camille\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top,Support\",\n        \"Tags\": \"Fighter,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.647,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 53,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.647,\n        \"Attack speed per lvl\": 1.5,\n        \"Base HP\": 630,\n        \"Base armor\": 18,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 350,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 60,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 328,\n        \"Name\": \"Cassiopeia\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5,\n        \"Attack damage\": 69,\n        \"Attack damage per lvl\": 4.2,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 1.44,\n        \"Base HP\": 644,\n        \"Base armor\": 38,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 270,\n        \"HP per lvl\": 94,\n        \"HP regeneration\": 9,\n        \"HP regeneration per lvl\": 0.85,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 60,\n        \"Mana regeneration\": 7.2,\n        \"Mana regeneration per lvl\": 0.45,\n        \"Movement speed\": 345,\n        \"Name\": \"Cho'Gath\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Tank,Mage\"\n    },\n    {\n        \"AS ratio\": 0.644,\n        \"Armor per lvl\": 4.5,\n        \"Attack damage\": 52,\n        \"Attack damage per lvl\": 2.5,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.644,\n        \"Attack speed per lvl\": 2.8,\n        \"Base HP\": 640,\n        \"Base armor\": 30,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 350,\n        \"HP per lvl\": 100,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 54,\n        \"Mana regeneration\": 7.4,\n        \"Mana regeneration per lvl\": 0.7,\n        \"Movement speed\": 325,\n        \"Name\": \"Corki\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Marksman,Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 64,\n        \"Attack damage per lvl\": 5,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 1,\n        \"Base HP\": 652,\n        \"Base armor\": 39,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 263,\n        \"HP per lvl\": 114,\n        \"HP regeneration\": 10,\n        \"HP regeneration per lvl\": 0.95,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 58,\n        \"Mana regeneration\": 6.6,\n        \"Mana regeneration per lvl\": 0.35,\n        \"Movement speed\": 340,\n        \"Name\": \"Darius\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Fighter,Tank\"\n    },\n    {\n        \"AS ratio\": 0.694,\n        \"Armor per lvl\": 4.3,\n        \"Attack damage\": 57,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 150,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2,\n        \"Base HP\": 640,\n        \"Base armor\": 31,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 375,\n        \"HP per lvl\": 109,\n        \"HP regeneration\": 6.5,\n        \"HP regeneration per lvl\": 0.85,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 25,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 345,\n        \"Name\": \"Diana\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle,Middle\",\n        \"Tags\": \"Fighter,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.679,\n        \"Armor per lvl\": 4.5,\n        \"Attack damage\": 62,\n        \"Attack damage per lvl\": 3.6,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.679,\n        \"Attack speed per lvl\": 2.7,\n        \"Base HP\": 675,\n        \"Base armor\": 29,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 361,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 3.75,\n        \"HP regeneration per lvl\": 0.7,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 39,\n        \"Mana regeneration\": 8.05,\n        \"Mana regeneration per lvl\": 0.65,\n        \"Movement speed\": 330,\n        \"Name\": \"Draven\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom\",\n        \"Tags\": \"Marksman\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 3.7,\n        \"Attack damage\": 61,\n        \"Attack damage per lvl\": 2.5,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.67,\n        \"Attack speed per lvl\": 3.3,\n        \"Base HP\": 613,\n        \"Base armor\": 32,\n        \"Base magic resistance\": 29,\n        \"Base mana\": 0,\n        \"HP per lvl\": 103,\n        \"HP regeneration\": 7,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 2.3,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 345,\n        \"Name\": \"Dr. Mundo\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Tank,Fighter\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 58,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.688,\n        \"Attack speed per lvl\": 3.3,\n        \"Base HP\": 655,\n        \"Base armor\": 32,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 280,\n        \"HP per lvl\": 99,\n        \"HP regeneration\": 9,\n        \"HP regeneration per lvl\": 0.9,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 70,\n        \"Mana regeneration\": 7,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 340,\n        \"Name\": \"Ekko\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle,Middle\",\n        \"Tags\": \"Assassin,Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 55,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 1.75,\n        \"Base HP\": 650,\n        \"Base armor\": 30,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 324,\n        \"HP per lvl\": 109,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 50,\n        \"Mana regeneration\": 6,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 330,\n        \"Name\": \"Elise\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Assassin,Mage\"\n    },\n    {\n        \"AS ratio\": 0.667,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 61,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.667,\n        \"Attack speed per lvl\": 2.1,\n        \"Base HP\": 642,\n        \"Base armor\": 37,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 315,\n        \"HP per lvl\": 98,\n        \"HP regeneration\": 8.5,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 42,\n        \"Mana regeneration\": 8.11,\n        \"Mana regeneration per lvl\": 0.6,\n        \"Movement speed\": 335,\n        \"Name\": \"Evelynn\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Assassin,Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 62,\n        \"Attack damage per lvl\": 2.75,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2.5,\n        \"Base HP\": 600,\n        \"Base armor\": 24,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 375,\n        \"HP per lvl\": 102,\n        \"HP regeneration\": 4,\n        \"HP regeneration per lvl\": 0.65,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 70,\n        \"Mana regeneration\": 8.5,\n        \"Mana regeneration per lvl\": 1,\n        \"Movement speed\": 325,\n        \"Name\": \"Ezreal\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom\",\n        \"Tags\": \"Marksman,Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 55,\n        \"Attack damage per lvl\": 2.65,\n        \"Attack range\": 480,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2.11,\n        \"Base HP\": 650,\n        \"Base armor\": 34,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 500,\n        \"HP per lvl\": 106,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 28,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 335,\n        \"Name\": \"Fiddlesticks\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Mage,Support\"\n    },\n    {\n        \"AS ratio\": 0.69,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 66,\n        \"Attack damage per lvl\": 3.3,\n        \"Attack range\": 150,\n        \"Attack speed\": 0.69,\n        \"Attack speed per lvl\": 3.2,\n        \"Base HP\": 620,\n        \"Base armor\": 33,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 300,\n        \"HP per lvl\": 99,\n        \"HP regeneration\": 8.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 60,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.7,\n        \"Movement speed\": 345,\n        \"Name\": \"Fiora\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Fighter,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.658,\n        \"Armor per lvl\": 4.6,\n        \"Attack damage\": 58,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 3.1,\n        \"Base HP\": 640,\n        \"Base armor\": 22,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 317,\n        \"HP per lvl\": 106,\n        \"HP regeneration\": 8,\n        \"HP regeneration per lvl\": 0.7,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 52,\n        \"Mana regeneration\": 6,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 335,\n        \"Name\": \"Fizz\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Assassin,Fighter\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 59,\n        \"Attack damage per lvl\": 3.5,\n        \"Attack range\": 150,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 1.5,\n        \"Base HP\": 632,\n        \"Base armor\": 24,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 500,\n        \"HP per lvl\": 126,\n        \"HP regeneration\": 8,\n        \"HP regeneration per lvl\": 0.8,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 9.5,\n        \"Mana regeneration per lvl\": 0.7,\n        \"Movement speed\": 340,\n        \"Name\": \"Galio\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle,Support\",\n        \"Tags\": \"Tank,Mage\"\n    },\n    {\n        \"AS ratio\": 0.69,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 64,\n        \"Attack damage per lvl\": 3.7,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 3.2,\n        \"Base HP\": 630,\n        \"Base armor\": 31,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 280,\n        \"HP per lvl\": 114,\n        \"HP regeneration\": 6,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 60,\n        \"Mana regeneration\": 7.5,\n        \"Mana regeneration per lvl\": 0.7,\n        \"Movement speed\": 345,\n        \"Name\": \"Gangplank\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Fighter\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 69,\n        \"Attack damage per lvl\": 4.5,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 3.65,\n        \"Base HP\": 690,\n        \"Base armor\": 38,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 0,\n        \"HP per lvl\": 98,\n        \"HP regeneration\": 8,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 1.55,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 340,\n        \"Name\": \"Garen\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Fighter,Tank\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 3.7,\n        \"Attack damage\": 57,\n        \"Attack damage per lvl\": 3.2,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 6,\n        \"Base HP\": 540,\n        \"Base armor\": 32,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 100,\n        \"HP per lvl\": 79,\n        \"HP regeneration\": 4.5,\n        \"HP regeneration per lvl\": 1.25,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 335,\n        \"Name\": \"Gnar\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Rage\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Fighter,Tank\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5,\n        \"Attack damage\": 64,\n        \"Attack damage per lvl\": 3.5,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.675,\n        \"Attack speed per lvl\": 2.05,\n        \"Base HP\": 640,\n        \"Base armor\": 38,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 400,\n        \"HP per lvl\": 115,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 47,\n        \"Mana regeneration\": 6,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 330,\n        \"Name\": \"Gragas\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle,Top,Middle\",\n        \"Tags\": \"Fighter,Mage\"\n    },\n    {\n        \"AS ratio\": 0.49,\n        \"Armor per lvl\": 4.6,\n        \"Attack damage\": 68,\n        \"Attack damage per lvl\": 4,\n        \"Attack range\": 425,\n        \"Attack speed\": 0.475,\n        \"Attack speed per lvl\": 3,\n        \"Base HP\": 625,\n        \"Base armor\": 33,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 325,\n        \"HP per lvl\": 106,\n        \"HP regeneration\": 8,\n        \"HP regeneration per lvl\": 0.7,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.7,\n        \"Movement speed\": 340,\n        \"Name\": \"Graves\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Marksman\"\n    },\n    {\n        \"AS ratio\": 0.69,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 63,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 150,\n        \"Attack speed\": 0.69,\n        \"Attack speed per lvl\": 2.25,\n        \"Base HP\": 620,\n        \"Base armor\": 39,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 330,\n        \"HP per lvl\": 115,\n        \"HP regeneration\": 9,\n        \"HP regeneration per lvl\": 0.9,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 7.5,\n        \"Mana regeneration per lvl\": 0.7,\n        \"Movement speed\": 340,\n        \"Name\": \"Gwen\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Fighter\"\n    },\n    {\n        \"AS ratio\": 0.67,\n        \"Armor per lvl\": 5.45,\n        \"Attack damage\": 66,\n        \"Attack damage per lvl\": 3.7,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.67,\n        \"Attack speed per lvl\": 2.5,\n        \"Base HP\": 625,\n        \"Base armor\": 32,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 280,\n        \"HP per lvl\": 99,\n        \"HP regeneration\": 7,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 7,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 345,\n        \"Name\": \"Hecarim\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Fighter,Tank\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 56,\n        \"Attack damage per lvl\": 2.7,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 1.36,\n        \"Base HP\": 558,\n        \"Base armor\": 19,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 385,\n        \"HP per lvl\": 101,\n        \"HP regeneration\": 7,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 20,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 340,\n        \"Name\": \"Heimerdinger\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support,Top,Middle\",\n        \"Tags\": \"Mage,Support\"\n    },\n    {\n        \"AS ratio\": 0.658,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 54,\n        \"Attack damage per lvl\": 3.3,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.69,\n        \"Attack speed per lvl\": 2.5,\n        \"Base HP\": 580,\n        \"Base armor\": 21,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 480,\n        \"HP per lvl\": 109,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 30,\n        \"Mana regeneration\": 7.5,\n        \"Mana regeneration per lvl\": 0.75,\n        \"Movement speed\": 330,\n        \"Name\": \"Hwei\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle,Support\",\n        \"Tags\": \"Mage,Support\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5,\n        \"Attack damage\": 68,\n        \"Attack damage per lvl\": 5,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2.5,\n        \"Base HP\": 656,\n        \"Base armor\": 35,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 350,\n        \"HP per lvl\": 115,\n        \"HP regeneration\": 9.5,\n        \"HP regeneration per lvl\": 0.8,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 60,\n        \"Mana regeneration\": 7.5,\n        \"Mana regeneration per lvl\": 0.75,\n        \"Movement speed\": 350,\n        \"Name\": \"Illaoi\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Fighter,Tank\"\n    },\n    {\n        \"AS ratio\": 0.656,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 65,\n        \"Attack damage per lvl\": 4,\n        \"Attack range\": 200,\n        \"Attack speed\": 0.656,\n        \"Attack speed per lvl\": 2.5,\n        \"Base HP\": 590,\n        \"Base armor\": 36,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 350,\n        \"HP per lvl\": 115,\n        \"HP regeneration\": 8.5,\n        \"HP regeneration per lvl\": 0.85,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 50,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 335,\n        \"Name\": \"Irelia\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top,Middle\",\n        \"Tags\": \"Fighter,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.644,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 50,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 475,\n        \"Attack speed\": 0.644,\n        \"Attack speed per lvl\": 3.4,\n        \"Base HP\": 630,\n        \"Base armor\": 27,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 450,\n        \"HP per lvl\": 99,\n        \"HP regeneration\": 7,\n        \"HP regeneration per lvl\": 0.85,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 60,\n        \"Mana regeneration\": 6,\n        \"Mana regeneration per lvl\": 0.75,\n        \"Movement speed\": 330,\n        \"Name\": \"Ivern\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Support,Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.5,\n        \"Attack damage\": 47,\n        \"Attack damage per lvl\": 2.5,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 3,\n        \"Base HP\": 570,\n        \"Base armor\": 28,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 360,\n        \"HP per lvl\": 90,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 50,\n        \"Mana regeneration\": 11.5,\n        \"Mana regeneration per lvl\": 0.4,\n        \"Movement speed\": 325,\n        \"Name\": \"Janna\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Support,Mage\"\n    },\n    {\n        \"AS ratio\": 0.658,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 64,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 2.5,\n        \"Base HP\": 640,\n        \"Base armor\": 36,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 300,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 8,\n        \"HP regeneration per lvl\": 0.7,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 55,\n        \"Mana regeneration\": 6.5,\n        \"Mana regeneration per lvl\": 0.45,\n        \"Movement speed\": 340,\n        \"Name\": \"Jarvan IV\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Fighter,Tank\"\n    },\n    {\n        \"AS ratio\": 0.638,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 68,\n        \"Attack damage per lvl\": 4.25,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.638,\n        \"Attack speed per lvl\": 3.4,\n        \"Base HP\": 665,\n        \"Base armor\": 36,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 339,\n        \"HP per lvl\": 100,\n        \"HP regeneration\": 8.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 52,\n        \"Mana regeneration\": 7.6,\n        \"Mana regeneration per lvl\": 0.7,\n        \"Movement speed\": 350,\n        \"Name\": \"Jax\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top,Jungle\",\n        \"Tags\": \"Fighter\"\n    },\n    {\n        \"AS ratio\": 0.658,\n        \"Armor per lvl\": 5,\n        \"Attack damage\": 59,\n        \"Attack damage per lvl\": 4.25,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 3,\n        \"Base HP\": 590,\n        \"Base armor\": 22,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 375,\n        \"HP per lvl\": 109,\n        \"HP regeneration\": 6,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 45,\n        \"Mana regeneration\": 6,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 335,\n        \"Name\": \"Jayce\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top,Middle\",\n        \"Tags\": \"Marksman,Fighter\"\n    },\n    {\n        \"AS ratio\": 0,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 59,\n        \"Attack damage per lvl\": 4.7,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 0,\n        \"Base HP\": 655,\n        \"Base armor\": 24,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 300,\n        \"HP per lvl\": 107,\n        \"HP regeneration\": 3.75,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 50,\n        \"Mana regeneration\": 6,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 330,\n        \"Name\": \"Jhin\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom\",\n        \"Tags\": \"Marksman,Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 59,\n        \"Attack damage per lvl\": 2.9,\n        \"Attack range\": 525,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 1,\n        \"Base HP\": 630,\n        \"Base armor\": 26,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 260,\n        \"HP per lvl\": 105,\n        \"HP regeneration\": 3.75,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 50,\n        \"Mana regeneration\": 6.7,\n        \"Mana regeneration per lvl\": 1,\n        \"Movement speed\": 325,\n        \"Name\": \"Jinx\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom\",\n        \"Tags\": \"Marksman\"\n    },\n    {\n        \"AS ratio\": 0.644,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 59,\n        \"Attack damage per lvl\": 2.6,\n        \"Attack range\": 525,\n        \"Attack speed\": 0.644,\n        \"Attack speed per lvl\": 1.8,\n        \"Base HP\": 640,\n        \"Base armor\": 25,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 345,\n        \"HP per lvl\": 102,\n        \"HP regeneration\": 3.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 8.2,\n        \"Mana regeneration per lvl\": 0.7,\n        \"Movement speed\": 335,\n        \"Name\": \"Kai'Sa\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom\",\n        \"Tags\": \"Marksman,Mage\"\n    },\n    {\n        \"AS ratio\": 0.694,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 59,\n        \"Attack damage per lvl\": 3.25,\n        \"Attack range\": 525,\n        \"Attack speed\": 0.694,\n        \"Attack speed per lvl\": 4.5,\n        \"Base HP\": 600,\n        \"Base armor\": 24,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 300,\n        \"HP per lvl\": 114,\n        \"HP regeneration\": 4,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 45,\n        \"Mana regeneration\": 6.3,\n        \"Mana regeneration per lvl\": 0.4,\n        \"Movement speed\": 330,\n        \"Name\": \"Kalista\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom\",\n        \"Tags\": \"Marksman\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5,\n        \"Attack damage\": 51,\n        \"Attack damage per lvl\": 3.3,\n        \"Attack range\": 525,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2.3,\n        \"Base HP\": 630,\n        \"Base armor\": 28,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 374,\n        \"HP per lvl\": 109,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 13,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 335,\n        \"Name\": \"Karma\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle,Support,Top\",\n        \"Tags\": \"Mage,Support\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 46,\n        \"Attack damage per lvl\": 3.25,\n        \"Attack range\": 450,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2.11,\n        \"Base HP\": 620,\n        \"Base armor\": 21,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 467,\n        \"HP per lvl\": 110,\n        \"HP regeneration\": 6.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 31,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 335,\n        \"Name\": \"Karthus\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Mage\"\n    },\n    {\n        \"AS ratio\": 0.64,\n        \"Armor per lvl\": 4,\n        \"Attack damage\": 59,\n        \"Attack damage per lvl\": 3.9,\n        \"Attack range\": 150,\n        \"Attack speed\": 0.64,\n        \"Attack speed per lvl\": 3.7,\n        \"Base HP\": 646,\n        \"Base armor\": 19,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 400,\n        \"HP per lvl\": 119,\n        \"HP regeneration\": 6,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 87,\n        \"Mana regeneration\": 6,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 335,\n        \"Name\": \"Kassadin\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Assassin,Mage\"\n    },\n    {\n        \"AS ratio\": 0.658,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 58,\n        \"Attack damage per lvl\": 3.2,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 2.74,\n        \"Base HP\": 672,\n        \"Base armor\": 28,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 0,\n        \"HP per lvl\": 108,\n        \"HP regeneration\": 7.5,\n        \"HP regeneration per lvl\": 0.7,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 335,\n        \"Name\": \"Katarina\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Assassin,Mage\"\n    },\n    {\n        \"AS ratio\": 0.667,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 50,\n        \"Attack damage per lvl\": 2.5,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 1.5,\n        \"Base HP\": 670,\n        \"Base armor\": 26,\n        \"Base magic resistance\": 22,\n        \"Base mana\": 330,\n        \"HP per lvl\": 92,\n        \"HP regeneration\": 5,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 50,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 335,\n        \"Name\": \"Kayle\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Mage,Marksman\"\n    },\n    {\n        \"AS ratio\": 0.669,\n        \"Armor per lvl\": 4.5,\n        \"Attack damage\": 68,\n        \"Attack damage per lvl\": 3.3,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.669,\n        \"Attack speed per lvl\": 2.7,\n        \"Base HP\": 655,\n        \"Base armor\": 38,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 410,\n        \"HP per lvl\": 109,\n        \"HP regeneration\": 8,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 50,\n        \"Mana regeneration\": 11.5,\n        \"Mana regeneration per lvl\": 0.95,\n        \"Movement speed\": 340,\n        \"Name\": \"Kayn\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Fighter,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.69,\n        \"Armor per lvl\": 4.95,\n        \"Attack damage\": 48,\n        \"Attack damage per lvl\": 3.75,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 3.4,\n        \"Base HP\": 580,\n        \"Base armor\": 29,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 200,\n        \"HP per lvl\": 98,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.65,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 50,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 335,\n        \"Name\": \"Kennen\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Energy\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Mage\"\n    },\n    {\n        \"AS ratio\": 0.668,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 60,\n        \"Attack damage per lvl\": 3.1,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.668,\n        \"Attack speed per lvl\": 2.7,\n        \"Base HP\": 643,\n        \"Base armor\": 36,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 327,\n        \"HP per lvl\": 99,\n        \"HP regeneration\": 7.5,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 7.59,\n        \"Mana regeneration per lvl\": 0.5,\n        \"Movement speed\": 350,\n        \"Name\": \"Kha'Zix\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Assassin\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 65,\n        \"Attack damage per lvl\": 3.25,\n        \"Attack range\": 500,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 3.5,\n        \"Base HP\": 610,\n        \"Base armor\": 29,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 300,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 7,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 35,\n        \"Mana regeneration\": 7,\n        \"Mana regeneration per lvl\": 0.4,\n        \"Movement speed\": 325,\n        \"Name\": \"Kindred\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Marksman\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 65,\n        \"Attack damage per lvl\": 3.5,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 3.5,\n        \"Base HP\": 410,\n        \"Base armor\": 35,\n        \"Base magic resistance\": 28,\n        \"Base mana\": 100,\n        \"HP per lvl\": 84,\n        \"HP regeneration\": 6,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 345,\n        \"Name\": \"Kled\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Courage\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Fighter\"\n    },\n    {\n        \"AS ratio\": 0.665,\n        \"Armor per lvl\": 4.45,\n        \"Attack damage\": 61,\n        \"Attack damage per lvl\": 3.1,\n        \"Attack range\": 500,\n        \"Attack speed\": 0.665,\n        \"Attack speed per lvl\": 2.65,\n        \"Base HP\": 635,\n        \"Base armor\": 24,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 325,\n        \"HP per lvl\": 99,\n        \"HP regeneration\": 3.75,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 8.75,\n        \"Mana regeneration per lvl\": 0.7,\n        \"Movement speed\": 330,\n        \"Name\": \"Kog'Maw\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom\",\n        \"Tags\": \"Marksman,Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 64,\n        \"Attack damage per lvl\": 3.5,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2.5,\n        \"Base HP\": 625,\n        \"Base armor\": 33,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 320,\n        \"HP per lvl\": 120,\n        \"HP regeneration\": 9.5,\n        \"HP regeneration per lvl\": 1,\n        \"Magic resistance per lvl\": 2.1,\n        \"Mana per lvl\": 60,\n        \"Mana regeneration\": 7,\n        \"Mana regeneration per lvl\": 1,\n        \"Movement speed\": 330,\n        \"Name\": \"K'Sante\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Tank,Fighter\"\n    },\n    {\n        \"AS ratio\": 0.4,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 55,\n        \"Attack damage per lvl\": 2.2,\n        \"Attack range\": 525,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 2.35,\n        \"Base HP\": 598,\n        \"Base armor\": 22,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 400,\n        \"HP per lvl\": 111,\n        \"HP regeneration\": 7.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 25,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 340,\n        \"Name\": \"LeBlanc\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Assassin,Mage\"\n    },\n    {\n        \"AS ratio\": 0.651,\n        \"Armor per lvl\": 4.9,\n        \"Attack damage\": 66,\n        \"Attack damage per lvl\": 3.7,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.651,\n        \"Attack speed per lvl\": 3,\n        \"Base HP\": 645,\n        \"Base armor\": 36,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 200,\n        \"HP per lvl\": 108,\n        \"HP regeneration\": 7.5,\n        \"HP regeneration per lvl\": 0.7,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 50,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 345,\n        \"Name\": \"Lee Sin\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Energy\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Fighter,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.8,\n        \"Attack damage\": 60,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2.9,\n        \"Base HP\": 646,\n        \"Base armor\": 47,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 302,\n        \"HP per lvl\": 101,\n        \"HP regeneration\": 8.5,\n        \"HP regeneration per lvl\": 0.85,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 6,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 335,\n        \"Name\": \"Leona\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Tank,Support\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 61,\n        \"Attack damage per lvl\": 3.1,\n        \"Attack range\": 325,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2.7,\n        \"Base HP\": 605,\n        \"Base armor\": 22,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 410,\n        \"HP per lvl\": 105,\n        \"HP regeneration\": 2.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.55,\n        \"Mana per lvl\": 50,\n        \"Mana regeneration\": 11.5,\n        \"Mana regeneration per lvl\": 0.95,\n        \"Movement speed\": 330,\n        \"Name\": \"Lillia\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Fighter,Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.9,\n        \"Attack damage\": 55,\n        \"Attack damage per lvl\": 2.7,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.656,\n        \"Attack speed per lvl\": 1.5,\n        \"Base HP\": 620,\n        \"Base armor\": 22,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 475,\n        \"HP per lvl\": 110,\n        \"HP regeneration\": 7,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 30,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.4,\n        \"Movement speed\": 325,\n        \"Name\": \"Lissandra\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Mage\"\n    },\n    {\n        \"AS ratio\": 0.638,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 60,\n        \"Attack damage per lvl\": 2.9,\n        \"Attack range\": 500,\n        \"Attack speed\": 0.638,\n        \"Attack speed per lvl\": 3.3,\n        \"Base HP\": 641,\n        \"Base armor\": 28,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 320,\n        \"HP per lvl\": 100,\n        \"HP regeneration\": 3.75,\n        \"HP regeneration per lvl\": 0.65,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 43,\n        \"Mana regeneration\": 7,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 335,\n        \"Name\": \"Lucian\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom\",\n        \"Tags\": \"Marksman,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.9,\n        \"Attack damage\": 47,\n        \"Attack damage per lvl\": 2.6,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2.25,\n        \"Base HP\": 595,\n        \"Base armor\": 26,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 350,\n        \"HP per lvl\": 92,\n        \"HP regeneration\": 6,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 55,\n        \"Mana regeneration\": 11,\n        \"Mana regeneration per lvl\": 0.6,\n        \"Movement speed\": 330,\n        \"Name\": \"Lulu\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Support,Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 54,\n        \"Attack damage per lvl\": 3.3,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.669,\n        \"Attack speed per lvl\": 3,\n        \"Base HP\": 580,\n        \"Base armor\": 21,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 480,\n        \"HP per lvl\": 99,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 23.5,\n        \"Mana regeneration\": 7,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 330,\n        \"Name\": \"Lux\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle,Support\",\n        \"Tags\": \"Mage,Support\"\n    },\n    {\n        \"AS ratio\": 0.638,\n        \"Armor per lvl\": 4.95,\n        \"Attack damage\": 62,\n        \"Attack damage per lvl\": 4,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.736,\n        \"Attack speed per lvl\": 3.4,\n        \"Base HP\": 644,\n        \"Base armor\": 37,\n        \"Base magic resistance\": 28,\n        \"Base mana\": 280,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 7,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 60,\n        \"Mana regeneration\": 7.3,\n        \"Mana regeneration per lvl\": 0.55,\n        \"Movement speed\": 335,\n        \"Name\": \"Malphite\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top,Middle,Support\",\n        \"Tags\": \"Tank,Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 55,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 500,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 1.5,\n        \"Base HP\": 580,\n        \"Base armor\": 18,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 375,\n        \"HP per lvl\": 101,\n        \"HP regeneration\": 6,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 28,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 335,\n        \"Name\": \"Malzahar\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Mage\"\n    },\n    {\n        \"AS ratio\": 0.695,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 64,\n        \"Attack damage per lvl\": 3.3,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.8,\n        \"Attack speed per lvl\": 2.125,\n        \"Base HP\": 635,\n        \"Base armor\": 35,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 375,\n        \"HP per lvl\": 109,\n        \"HP regeneration\": 5,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 43,\n        \"Mana regeneration\": 6,\n        \"Mana regeneration per lvl\": 0.6,\n        \"Movement speed\": 330,\n        \"Name\": \"Maokai\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support,Jungle\",\n        \"Tags\": \"Tank,Support\"\n    },\n    {\n        \"AS ratio\": 0.679,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 65,\n        \"Attack damage per lvl\": 2.5,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.679,\n        \"Attack speed per lvl\": 2.5,\n        \"Base HP\": 669,\n        \"Base armor\": 33,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 251,\n        \"HP per lvl\": 105,\n        \"HP regeneration\": 7.5,\n        \"HP regeneration per lvl\": 0.65,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 42,\n        \"Mana regeneration\": 7.25,\n        \"Mana regeneration per lvl\": 0.45,\n        \"Movement speed\": 355,\n        \"Name\": \"Master Yi\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Assassin,Fighter\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.6,\n        \"Attack damage\": 48,\n        \"Attack damage per lvl\": 3.2,\n        \"Attack range\": 525,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 3,\n        \"Base HP\": 560,\n        \"Base armor\": 26,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 365,\n        \"HP per lvl\": 88,\n        \"HP regeneration\": 5,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 43,\n        \"Mana regeneration\": 11.5,\n        \"Mana regeneration per lvl\": 0.4,\n        \"Movement speed\": 330,\n        \"Name\": \"Milio\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Support,Mage\"\n    },\n    {\n        \"AS ratio\": 0.656,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 55,\n        \"Attack damage per lvl\": 2.4,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.656,\n        \"Attack speed per lvl\": 3,\n        \"Base HP\": 640,\n        \"Base armor\": 28,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 300,\n        \"HP per lvl\": 103,\n        \"HP regeneration\": 3.75,\n        \"HP regeneration per lvl\": 0.65,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 325,\n        \"Name\": \"Miss Fortune\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom\",\n        \"Tags\": \"Marksman,Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 61,\n        \"Attack damage per lvl\": 4,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 1,\n        \"Base HP\": 645,\n        \"Base armor\": 37,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 100,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 5,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 335,\n        \"Name\": \"Mordekaiser\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Shield\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Fighter,Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5,\n        \"Attack damage\": 56,\n        \"Attack damage per lvl\": 3.5,\n        \"Attack range\": 450,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 1.53,\n        \"Base HP\": 630,\n        \"Base armor\": 25,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 340,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.4,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 60,\n        \"Mana regeneration\": 11,\n        \"Mana regeneration per lvl\": 0.4,\n        \"Movement speed\": 335,\n        \"Name\": \"Morgana\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Mage,Support\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 55,\n        \"Attack damage per lvl\": 2.1,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.663,\n        \"Attack speed per lvl\": 2.1,\n        \"Base HP\": 635,\n        \"Base armor\": 30,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 400,\n        \"HP per lvl\": 120,\n        \"HP regeneration\": 9,\n        \"HP regeneration per lvl\": 0.9,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 55,\n        \"Mana regeneration\": 7.5,\n        \"Mana regeneration per lvl\": 1,\n        \"Movement speed\": 340,\n        \"Name\": \"Naafiri\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Assassin,Fighter\"\n    },\n    {\n        \"AS ratio\": 0.644,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 54,\n        \"Attack damage per lvl\": 3.1,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.644,\n        \"Attack speed per lvl\": 2.61,\n        \"Base HP\": 560,\n        \"Base armor\": 29,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 365,\n        \"HP per lvl\": 88,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 43,\n        \"Mana regeneration\": 11.5,\n        \"Mana regeneration per lvl\": 0.4,\n        \"Movement speed\": 335,\n        \"Name\": \"Nami\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Support,Mage\"\n    },\n    {\n        \"AS ratio\": 0.638,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 67,\n        \"Attack damage per lvl\": 4,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.638,\n        \"Attack speed per lvl\": 3.48,\n        \"Base HP\": 631,\n        \"Base armor\": 34,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 326,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 9,\n        \"HP regeneration per lvl\": 0.9,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 62,\n        \"Mana regeneration\": 7.45,\n        \"Mana regeneration per lvl\": 0.5,\n        \"Movement speed\": 350,\n        \"Name\": \"Nasus\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Fighter,Tank\"\n    },\n    {\n        \"AS ratio\": 0.612,\n        \"Armor per lvl\": 4.95,\n        \"Attack damage\": 61,\n        \"Attack damage per lvl\": 3.3,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.706,\n        \"Attack speed per lvl\": 1,\n        \"Base HP\": 646,\n        \"Base armor\": 39,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 400,\n        \"HP per lvl\": 100,\n        \"HP regeneration\": 8.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 47,\n        \"Mana regeneration\": 8.65,\n        \"Mana regeneration per lvl\": 0.5,\n        \"Movement speed\": 325,\n        \"Name\": \"Nautilus\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Tank,Support\"\n    },\n    {\n        \"AS ratio\": 0.67,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 48,\n        \"Attack damage per lvl\": 2.5,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 3.5,\n        \"Base HP\": 610,\n        \"Base armor\": 21,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 450,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 7.5,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 30,\n        \"Mana regeneration\": 7,\n        \"Mana regeneration per lvl\": 0.7,\n        \"Movement speed\": 340,\n        \"Name\": \"Neeko\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle,Support\",\n        \"Tags\": \"Mage,Support\"\n    },\n    {\n        \"AS ratio\": 0.638,\n        \"Armor per lvl\": 5,\n        \"Attack damage\": 58,\n        \"Attack damage per lvl\": 3.5,\n        \"Attack range\": 525,\n        \"Attack speed\": 0.638,\n        \"Attack speed per lvl\": 3.22,\n        \"Base HP\": 610,\n        \"Base armor\": 32,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 295,\n        \"HP per lvl\": 109,\n        \"HP regeneration\": 6,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 1.45,\n        \"Mana per lvl\": 45,\n        \"Mana regeneration\": 6,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 335,\n        \"Name\": \"Nidalee\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Assassin,Mage\"\n    },\n    {\n        \"AS ratio\": 0.67,\n        \"Armor per lvl\": 4.5,\n        \"Attack damage\": 58,\n        \"Attack damage per lvl\": 2,\n        \"Attack range\": 225,\n        \"Attack speed\": 0.697,\n        \"Attack speed per lvl\": 3,\n        \"Base HP\": 570,\n        \"Base armor\": 27,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 350,\n        \"HP per lvl\": 101,\n        \"HP regeneration\": 6,\n        \"HP regeneration per lvl\": 0.9,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 35,\n        \"Mana regeneration\": 8.2,\n        \"Mana regeneration per lvl\": 0.7,\n        \"Movement speed\": 340,\n        \"Name\": \"Nilah\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom\",\n        \"Tags\": \"Fighter,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.721,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 62,\n        \"Attack damage per lvl\": 2.6,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.721,\n        \"Attack speed per lvl\": 2.7,\n        \"Base HP\": 655,\n        \"Base armor\": 38,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 275,\n        \"HP per lvl\": 109,\n        \"HP regeneration\": 7,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 1.55,\n        \"Mana per lvl\": 35,\n        \"Mana regeneration\": 7,\n        \"Mana regeneration per lvl\": 0.45,\n        \"Movement speed\": 345,\n        \"Name\": \"Nocturne\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Fighter,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 61,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2.25,\n        \"Base HP\": 610,\n        \"Base armor\": 29,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 280,\n        \"HP per lvl\": 90,\n        \"HP regeneration\": 5,\n        \"HP regeneration per lvl\": 0.8,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 42,\n        \"Mana regeneration\": 7,\n        \"Mana regeneration per lvl\": 0.5,\n        \"Movement speed\": 345,\n        \"Name\": \"Nunu & Willump\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Tank,Mage\"\n    },\n    {\n        \"AS ratio\": 0.694,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 68,\n        \"Attack damage per lvl\": 4.7,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.694,\n        \"Attack speed per lvl\": 2.7,\n        \"Base HP\": 645,\n        \"Base armor\": 35,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 316,\n        \"HP per lvl\": 119,\n        \"HP regeneration\": 6.5,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 50,\n        \"Mana regeneration\": 7.5,\n        \"Mana regeneration per lvl\": 0.6,\n        \"Movement speed\": 350,\n        \"Name\": \"Olaf\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Fighter,Tank\"\n    },\n    {\n        \"AS ratio\": 0.658,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 44,\n        \"Attack damage per lvl\": 2.6,\n        \"Attack range\": 525,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 3.5,\n        \"Base HP\": 585,\n        \"Base armor\": 20,\n        \"Base magic resistance\": 26,\n        \"Base mana\": 418,\n        \"HP per lvl\": 110,\n        \"HP regeneration\": 7,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 25,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 325,\n        \"Name\": \"Orianna\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Mage,Support\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 69,\n        \"Attack damage per lvl\": 3.5,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2,\n        \"Base HP\": 660,\n        \"Base armor\": 33,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 341,\n        \"HP per lvl\": 109,\n        \"HP regeneration\": 9,\n        \"HP regeneration per lvl\": 0.9,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 65,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.6,\n        \"Movement speed\": 335,\n        \"Name\": \"Ornn\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Tank\"\n    },\n    {\n        \"AS ratio\": 0.658,\n        \"Armor per lvl\": 4.95,\n        \"Attack damage\": 64,\n        \"Attack damage per lvl\": 3.3,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 2.95,\n        \"Base HP\": 650,\n        \"Base armor\": 40,\n        \"Base magic resistance\": 28,\n        \"Base mana\": 317,\n        \"HP per lvl\": 109,\n        \"HP regeneration\": 6,\n        \"HP regeneration per lvl\": 0.65,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 31,\n        \"Mana regeneration\": 7.35,\n        \"Mana regeneration per lvl\": 0.45,\n        \"Movement speed\": 345,\n        \"Name\": \"Pantheon\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top,Support,Jungle,Middle\",\n        \"Tags\": \"Fighter,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 64,\n        \"Attack damage per lvl\": 4,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2.5,\n        \"Base HP\": 610,\n        \"Base armor\": 38,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 280,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 8,\n        \"HP regeneration per lvl\": 0.8,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 7,\n        \"Mana regeneration per lvl\": 0.7,\n        \"Movement speed\": 345,\n        \"Name\": \"Poppy\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top,Jungle\",\n        \"Tags\": \"Tank,Fighter\"\n    },\n    {\n        \"AS ratio\": 0.667,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 62,\n        \"Attack damage per lvl\": 2,\n        \"Attack range\": 150,\n        \"Attack speed\": 0.667,\n        \"Attack speed per lvl\": 2.5,\n        \"Base HP\": 670,\n        \"Base armor\": 47,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 415,\n        \"HP per lvl\": 110,\n        \"HP regeneration\": 7,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 50,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 1,\n        \"Movement speed\": 330,\n        \"Name\": \"Pyke\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Support,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 66,\n        \"Attack damage per lvl\": 3.1,\n        \"Attack range\": 150,\n        \"Attack speed\": 0.688,\n        \"Attack speed per lvl\": 2.1,\n        \"Base HP\": 590,\n        \"Base armor\": 28,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 375,\n        \"HP per lvl\": 124,\n        \"HP regeneration\": 6,\n        \"HP regeneration per lvl\": 0.9,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 60,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.7,\n        \"Movement speed\": 335,\n        \"Name\": \"Qiyana\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Assassin\"\n    },\n    {\n        \"AS ratio\": 0.668,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 59,\n        \"Attack damage per lvl\": 2.7,\n        \"Attack range\": 525,\n        \"Attack speed\": 0.668,\n        \"Attack speed per lvl\": 3.1,\n        \"Base HP\": 565,\n        \"Base armor\": 28,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 269,\n        \"HP per lvl\": 107,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 35,\n        \"Mana regeneration\": 7,\n        \"Mana regeneration per lvl\": 0.4,\n        \"Movement speed\": 330,\n        \"Name\": \"Quinn\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Marksman,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.635,\n        \"Armor per lvl\": 4.9,\n        \"Attack damage\": 62,\n        \"Attack damage per lvl\": 3.5,\n        \"Attack range\": 300,\n        \"Attack speed\": 0.635,\n        \"Attack speed per lvl\": 3,\n        \"Base HP\": 610,\n        \"Base armor\": 30,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 315,\n        \"HP per lvl\": 99,\n        \"HP regeneration\": 5,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 50,\n        \"Mana regeneration\": 8.75,\n        \"Mana regeneration per lvl\": 0.5,\n        \"Movement speed\": 335,\n        \"Name\": \"Rakan\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Support\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5.5,\n        \"Attack damage\": 55,\n        \"Attack damage per lvl\": 2.75,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.656,\n        \"Attack speed per lvl\": 2.215,\n        \"Base HP\": 675,\n        \"Base armor\": 40,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 310,\n        \"HP per lvl\": 94,\n        \"HP regeneration\": 8,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 33,\n        \"Mana regeneration\": 7.85,\n        \"Mana regeneration per lvl\": 0.5,\n        \"Movement speed\": 335,\n        \"Name\": \"Rammus\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Tank\"\n    },\n    {\n        \"AS ratio\": 0.667,\n        \"Armor per lvl\": 4.95,\n        \"Attack damage\": 58,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.667,\n        \"Attack speed per lvl\": 2,\n        \"Base HP\": 600,\n        \"Base armor\": 36,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 100,\n        \"HP per lvl\": 99,\n        \"HP regeneration\": 2.5,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 340,\n        \"Name\": \"Rek'Sai\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Rage\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Fighter,Tank\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 55,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 1.5,\n        \"Base HP\": 610,\n        \"Base armor\": 36,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 350,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 7.5,\n        \"HP regeneration per lvl\": 0.85,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 45,\n        \"Mana regeneration\": 6,\n        \"Mana regeneration per lvl\": 0.35,\n        \"Movement speed\": 330,\n        \"Name\": \"Rell\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Tank,Support\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 49,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2.11,\n        \"Base HP\": 545,\n        \"Base armor\": 27,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 350,\n        \"HP per lvl\": 94,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 50,\n        \"Mana regeneration\": 11.5,\n        \"Mana regeneration per lvl\": 0.5,\n        \"Movement speed\": 330,\n        \"Name\": \"Renata Glasc\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Support,Mage\"\n    },\n    {\n        \"AS ratio\": 0.665,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 69,\n        \"Attack damage per lvl\": 4.15,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.665,\n        \"Attack speed per lvl\": 2.75,\n        \"Base HP\": 660,\n        \"Base armor\": 35,\n        \"Base magic resistance\": 28,\n        \"Base mana\": 100,\n        \"HP per lvl\": 111,\n        \"HP regeneration\": 8,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 345,\n        \"Name\": \"Renekton\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Fury\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Fighter,Tank\"\n    },\n    {\n        \"AS ratio\": 0.667,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 68,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.667,\n        \"Attack speed per lvl\": 3,\n        \"Base HP\": 590,\n        \"Base armor\": 34,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 4,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 6,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 345,\n        \"Name\": \"Rengar\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Ferocity\",\n        \"Role\": \"Jungle,Top\",\n        \"Tags\": \"Assassin,Fighter\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.4,\n        \"Attack damage\": 64,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 3.5,\n        \"Base HP\": 630,\n        \"Base armor\": 33,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 0,\n        \"HP per lvl\": 100,\n        \"HP regeneration\": 8.5,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 340,\n        \"Name\": \"Riven\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Fighter,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.644,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 64,\n        \"Attack damage per lvl\": 3.2,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.644,\n        \"Attack speed per lvl\": 1.85,\n        \"Base HP\": 625,\n        \"Base armor\": 36,\n        \"Base magic resistance\": 28,\n        \"Base mana\": 150,\n        \"HP per lvl\": 105,\n        \"HP regeneration\": 7,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 1.55,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 345,\n        \"Name\": \"Rumble\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Heat\",\n        \"Role\": \"Top,Middle\",\n        \"Tags\": \"Fighter,Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 58,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 2.11,\n        \"Base HP\": 645,\n        \"Base armor\": 22,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 300,\n        \"HP per lvl\": 124,\n        \"HP regeneration\": 8,\n        \"HP regeneration per lvl\": 0.8,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 70,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 1,\n        \"Movement speed\": 340,\n        \"Name\": \"Ryze\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Mage\"\n    },\n    {\n        \"AS ratio\": 0.658,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 57,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 500,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 3.3,\n        \"Base HP\": 630,\n        \"Base armor\": 26,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 349,\n        \"HP per lvl\": 108,\n        \"HP regeneration\": 3.25,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 38,\n        \"Mana regeneration\": 8.2,\n        \"Mana regeneration per lvl\": 0.7,\n        \"Movement speed\": 335,\n        \"Name\": \"Samira\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom\",\n        \"Tags\": \"Marksman,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5.45,\n        \"Attack damage\": 66,\n        \"Attack damage per lvl\": 4,\n        \"Attack range\": 150,\n        \"Attack speed\": 0.688,\n        \"Attack speed per lvl\": 3.5,\n        \"Base HP\": 630,\n        \"Base armor\": 34,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 400,\n        \"HP per lvl\": 114,\n        \"HP regeneration\": 8.5,\n        \"HP regeneration per lvl\": 1,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 7,\n        \"Mana regeneration per lvl\": 0.7,\n        \"Movement speed\": 340,\n        \"Name\": \"Sejuani\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Tank\"\n    },\n    {\n        \"AS ratio\": 0.4,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 50,\n        \"Attack damage per lvl\": 0,\n        \"Attack range\": 600,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 4,\n        \"Base HP\": 530,\n        \"Base armor\": 28,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 350,\n        \"HP per lvl\": 89,\n        \"HP regeneration\": 3.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 45,\n        \"Mana regeneration\": 11.5,\n        \"Mana regeneration per lvl\": 0.7,\n        \"Movement speed\": 330,\n        \"Name\": \"Senna\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom,Support\",\n        \"Tags\": \"Support,Marksman\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 50,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 525,\n        \"Attack speed\": 0.669,\n        \"Attack speed per lvl\": 2,\n        \"Base HP\": 570,\n        \"Base armor\": 26,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 360,\n        \"HP per lvl\": 90,\n        \"HP regeneration\": 6.5,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 25,\n        \"Mana regeneration\": 11.5,\n        \"Mana regeneration per lvl\": 0.95,\n        \"Movement speed\": 330,\n        \"Name\": \"Seraphine\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom,Support\",\n        \"Tags\": \"Support,Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 60,\n        \"Attack damage per lvl\": 4,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 1.75,\n        \"Base HP\": 670,\n        \"Base armor\": 33,\n        \"Base magic resistance\": 28,\n        \"Base mana\": 0,\n        \"HP per lvl\": 114,\n        \"HP regeneration\": 7,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 340,\n        \"Name\": \"Sett\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Grit\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Fighter,Tank\"\n    },\n    {\n        \"AS ratio\": 0.694,\n        \"Armor per lvl\": 4,\n        \"Attack damage\": 63,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.694,\n        \"Attack speed per lvl\": 3,\n        \"Base HP\": 630,\n        \"Base armor\": 30,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 297,\n        \"HP per lvl\": 99,\n        \"HP regeneration\": 8.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 6,\n        \"Mana regeneration per lvl\": 0.35,\n        \"Movement speed\": 345,\n        \"Name\": \"Shaco\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle,Support\",\n        \"Tags\": \"Assassin\"\n    },\n    {\n        \"AS ratio\": 0.651,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 64,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.751,\n        \"Attack speed per lvl\": 3,\n        \"Base HP\": 610,\n        \"Base armor\": 34,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 400,\n        \"HP per lvl\": 99,\n        \"HP regeneration\": 8.5,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 50,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 340,\n        \"Name\": \"Shen\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Energy\",\n        \"Role\": \"Top,Support\",\n        \"Tags\": \"Tank\"\n    },\n    {\n        \"AS ratio\": 0.658,\n        \"Armor per lvl\": 4.55,\n        \"Attack damage\": 66,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 2.5,\n        \"Base HP\": 665,\n        \"Base armor\": 38,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 100,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 8.5,\n        \"HP regeneration per lvl\": 0.8,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 350,\n        \"Name\": \"Shyvana\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Fury\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Fighter,Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 63,\n        \"Attack damage per lvl\": 3.4,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 1.9,\n        \"Base HP\": 650,\n        \"Base armor\": 34,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 330,\n        \"HP per lvl\": 99,\n        \"HP regeneration\": 9.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 45,\n        \"Mana regeneration\": 7.5,\n        \"Mana regeneration per lvl\": 0.55,\n        \"Movement speed\": 345,\n        \"Name\": \"Singed\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Tank,Mage\"\n    },\n    {\n        \"AS ratio\": 0.679,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 68,\n        \"Attack damage per lvl\": 4,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.679,\n        \"Attack speed per lvl\": 1.3,\n        \"Base HP\": 655,\n        \"Base armor\": 32,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 400,\n        \"HP per lvl\": 87,\n        \"HP regeneration\": 7.5,\n        \"HP regeneration per lvl\": 0.8,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 52,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.6,\n        \"Movement speed\": 345,\n        \"Name\": \"Sion\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Tank,Fighter\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.45,\n        \"Attack damage\": 58,\n        \"Attack damage per lvl\": 2.5,\n        \"Attack range\": 500,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2,\n        \"Base HP\": 600,\n        \"Base armor\": 30,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 340,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 3.25,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 45,\n        \"Mana regeneration\": 6,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 335,\n        \"Name\": \"Sivir\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom\",\n        \"Tags\": \"Marksman\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.8,\n        \"Attack damage\": 60,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 150,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2,\n        \"Base HP\": 610,\n        \"Base armor\": 33,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 320,\n        \"HP per lvl\": 105,\n        \"HP regeneration\": 7.5,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 7.2,\n        \"Mana regeneration per lvl\": 0.75,\n        \"Movement speed\": 335,\n        \"Name\": \"Skarner\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle,Top\",\n        \"Tags\": \"Tank,Fighter\"\n    },\n    {\n        \"AS ratio\": 0.638,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 60,\n        \"Attack damage per lvl\": 2.3,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.638,\n        \"Attack speed per lvl\": 4,\n        \"Base HP\": 605,\n        \"Base armor\": 26,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 300,\n        \"HP per lvl\": 100,\n        \"HP regeneration\": 4.5,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 8.5,\n        \"Mana regeneration per lvl\": 0.7,\n        \"Movement speed\": 330,\n        \"Name\": \"Smolder\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom,Top,Middle\",\n        \"Tags\": \"Marksman,Mage\"\n    },\n    {\n        \"AS ratio\": 0.644,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 49,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.644,\n        \"Attack speed per lvl\": 2.3,\n        \"Base HP\": 550,\n        \"Base armor\": 26,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 340,\n        \"HP per lvl\": 91,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 45,\n        \"Mana regeneration\": 11.5,\n        \"Mana regeneration per lvl\": 0.4,\n        \"Movement speed\": 325,\n        \"Name\": \"Sona\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Support,Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5,\n        \"Attack damage\": 50,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2.14,\n        \"Base HP\": 605,\n        \"Base armor\": 32,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 425,\n        \"HP per lvl\": 88,\n        \"HP regeneration\": 2.5,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 11.5,\n        \"Mana regeneration per lvl\": 0.4,\n        \"Movement speed\": 325,\n        \"Name\": \"Soraka\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Support,Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 58,\n        \"Attack damage per lvl\": 2.7,\n        \"Attack range\": 525,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2.11,\n        \"Base HP\": 595,\n        \"Base armor\": 26,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 468,\n        \"HP per lvl\": 99,\n        \"HP regeneration\": 7,\n        \"HP regeneration per lvl\": 0.65,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 29,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 330,\n        \"Name\": \"Swain\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support,Middle\",\n        \"Tags\": \"Mage,Support\"\n    },\n    {\n        \"AS ratio\": 0.645,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 61,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.645,\n        \"Attack speed per lvl\": 3.5,\n        \"Base HP\": 575,\n        \"Base armor\": 27,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 400,\n        \"HP per lvl\": 129,\n        \"HP regeneration\": 9,\n        \"HP regeneration per lvl\": 0.9,\n        \"Magic resistance per lvl\": 2.55,\n        \"Mana per lvl\": 70,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 340,\n        \"Name\": \"Sylas\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle,Top\",\n        \"Tags\": \"Mage,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.6,\n        \"Attack damage\": 54,\n        \"Attack damage per lvl\": 2.9,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 2,\n        \"Base HP\": 563,\n        \"Base armor\": 25,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 480,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 6.5,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 330,\n        \"Name\": \"Syndra\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Mage\"\n    },\n    {\n        \"AS ratio\": 0.658,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 56,\n        \"Attack damage per lvl\": 3.2,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 2.5,\n        \"Base HP\": 640,\n        \"Base armor\": 42,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 325,\n        \"HP per lvl\": 103,\n        \"HP regeneration\": 6.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 50,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 1,\n        \"Movement speed\": 335,\n        \"Name\": \"Tahm Kench\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top,Support\",\n        \"Tags\": \"Tank,Support\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 58,\n        \"Attack damage per lvl\": 3.3,\n        \"Attack range\": 525,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 1.36,\n        \"Base HP\": 550,\n        \"Base armor\": 18,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 470,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 6.5,\n        \"HP regeneration per lvl\": 0.65,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 30,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 330,\n        \"Name\": \"Taliyah\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle,Middle\",\n        \"Tags\": \"Mage,Support\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 68,\n        \"Attack damage per lvl\": 3.1,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2.9,\n        \"Base HP\": 658,\n        \"Base armor\": 30,\n        \"Base magic resistance\": 39,\n        \"Base mana\": 400,\n        \"HP per lvl\": 109,\n        \"HP regeneration\": 8.5,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 37,\n        \"Mana regeneration\": 7.6,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 335,\n        \"Name\": \"Talon\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle,Jungle\",\n        \"Tags\": \"Assassin\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.3,\n        \"Attack damage\": 55,\n        \"Attack damage per lvl\": 3.5,\n        \"Attack range\": 150,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2,\n        \"Base HP\": 645,\n        \"Base armor\": 40,\n        \"Base magic resistance\": 28,\n        \"Base mana\": 300,\n        \"HP per lvl\": 99,\n        \"HP regeneration\": 6,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 60,\n        \"Mana regeneration\": 8.5,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 340,\n        \"Name\": \"Taric\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support,Middle\",\n        \"Tags\": \"Support,Tank\"\n    },\n    {\n        \"AS ratio\": 0.69,\n        \"Armor per lvl\": 4.95,\n        \"Attack damage\": 54,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 500,\n        \"Attack speed\": 0.69,\n        \"Attack speed per lvl\": 3.38,\n        \"Base HP\": 598,\n        \"Base armor\": 24,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 334,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.65,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 25,\n        \"Mana regeneration\": 9.6,\n        \"Mana regeneration per lvl\": 0.45,\n        \"Movement speed\": 330,\n        \"Name\": \"Teemo\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top,Jungle,Support\",\n        \"Tags\": \"Marksman,Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 0,\n        \"Attack damage\": 56,\n        \"Attack damage per lvl\": 2.2,\n        \"Attack range\": 450,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 3.5,\n        \"Base HP\": 600,\n        \"Base armor\": 33,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 274,\n        \"HP per lvl\": 120,\n        \"HP regeneration\": 7,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.55,\n        \"Mana per lvl\": 44,\n        \"Mana regeneration\": 6,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 330,\n        \"Name\": \"Thresh\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Support,Tank\"\n    },\n    {\n        \"AS ratio\": 0.679,\n        \"Armor per lvl\": 4.5,\n        \"Attack damage\": 59,\n        \"Attack damage per lvl\": 3.7,\n        \"Attack range\": 525,\n        \"Attack speed\": 0.656,\n        \"Attack speed per lvl\": 1.5,\n        \"Base HP\": 640,\n        \"Base armor\": 30,\n        \"Base magic resistance\": 28,\n        \"Base mana\": 250,\n        \"HP per lvl\": 102,\n        \"HP regeneration\": 4,\n        \"HP regeneration per lvl\": 0.65,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 32,\n        \"Mana regeneration\": 7.2,\n        \"Mana regeneration per lvl\": 0.45,\n        \"Movement speed\": 325,\n        \"Name\": \"Tristana\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom,Middle\",\n        \"Tags\": \"Marksman,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.67,\n        \"Armor per lvl\": 3.9,\n        \"Attack damage\": 68,\n        \"Attack damage per lvl\": 4,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.67,\n        \"Attack speed per lvl\": 2.9,\n        \"Base HP\": 650,\n        \"Base armor\": 37,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 340,\n        \"HP per lvl\": 110,\n        \"HP regeneration\": 6,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 45,\n        \"Mana regeneration\": 7.5,\n        \"Mana regeneration per lvl\": 0.6,\n        \"Movement speed\": 350,\n        \"Name\": \"Trundle\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top,Jungle\",\n        \"Tags\": \"Fighter,Tank\"\n    },\n    {\n        \"AS ratio\": 0.67,\n        \"Armor per lvl\": 4.3,\n        \"Attack damage\": 66,\n        \"Attack damage per lvl\": 4,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.67,\n        \"Attack speed per lvl\": 3.4,\n        \"Base HP\": 696,\n        \"Base armor\": 33,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 100,\n        \"HP per lvl\": 108,\n        \"HP regeneration\": 8.5,\n        \"HP regeneration per lvl\": 0.9,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 345,\n        \"Name\": \"Tryndamere\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Fury\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Fighter,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.651,\n        \"Armor per lvl\": 4.35,\n        \"Attack damage\": 52,\n        \"Attack damage per lvl\": 2.5,\n        \"Attack range\": 525,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2.5,\n        \"Base HP\": 604,\n        \"Base armor\": 21,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 333,\n        \"HP per lvl\": 108,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 39,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 330,\n        \"Name\": \"Twisted Fate\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle,Bottom,Top\",\n        \"Tags\": \"Mage,Marksman\"\n    },\n    {\n        \"AS ratio\": 0.679,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 59,\n        \"Attack damage per lvl\": 3.1,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.679,\n        \"Attack speed per lvl\": 3.38,\n        \"Base HP\": 630,\n        \"Base armor\": 27,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 300,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 3.75,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 7.25,\n        \"Mana regeneration per lvl\": 0.7,\n        \"Movement speed\": 330,\n        \"Name\": \"Twitch\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom,Support\",\n        \"Tags\": \"Marksman,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.65,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 62,\n        \"Attack damage per lvl\": 4,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.65,\n        \"Attack speed per lvl\": 3,\n        \"Base HP\": 664,\n        \"Base armor\": 31,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 271,\n        \"HP per lvl\": 92,\n        \"HP regeneration\": 6,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 50,\n        \"Mana regeneration\": 7.5,\n        \"Mana regeneration per lvl\": 0.45,\n        \"Movement speed\": 350,\n        \"Name\": \"Udyr\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top,Jungle\",\n        \"Tags\": \"Fighter,Tank\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5,\n        \"Attack damage\": 63,\n        \"Attack damage per lvl\": 4,\n        \"Attack range\": 350,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 3.75,\n        \"Base HP\": 655,\n        \"Base armor\": 36,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 340,\n        \"HP per lvl\": 102,\n        \"HP regeneration\": 7.5,\n        \"HP regeneration per lvl\": 0.7,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 45,\n        \"Mana regeneration\": 7.25,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 330,\n        \"Name\": \"Urgot\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Fighter,Tank\"\n    },\n    {\n        \"AS ratio\": 0.658,\n        \"Armor per lvl\": 4.6,\n        \"Attack damage\": 57,\n        \"Attack damage per lvl\": 3.4,\n        \"Attack range\": 575,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 3.5,\n        \"Base HP\": 600,\n        \"Base armor\": 27,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 360,\n        \"HP per lvl\": 105,\n        \"HP regeneration\": 3.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 330,\n        \"Name\": \"Varus\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom\",\n        \"Tags\": \"Marksman,Mage\"\n    },\n    {\n        \"AS ratio\": 0.658,\n        \"Armor per lvl\": 4.6,\n        \"Attack damage\": 60,\n        \"Attack damage per lvl\": 2.35,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 3.3,\n        \"Base HP\": 550,\n        \"Base armor\": 23,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 232,\n        \"HP per lvl\": 103,\n        \"HP regeneration\": 3.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 35,\n        \"Mana regeneration\": 7,\n        \"Mana regeneration per lvl\": 0.4,\n        \"Movement speed\": 330,\n        \"Name\": \"Vayne\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom,Top\",\n        \"Tags\": \"Marksman,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 52,\n        \"Attack damage per lvl\": 2.7,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2.24,\n        \"Base HP\": 580,\n        \"Base armor\": 18,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 490,\n        \"HP per lvl\": 108,\n        \"HP regeneration\": 6.5,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 26,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 340,\n        \"Name\": \"Veigar\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle,Support\",\n        \"Tags\": \"Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 55,\n        \"Attack damage per lvl\": 3.1416,\n        \"Attack range\": 525,\n        \"Attack speed\": 0.643,\n        \"Attack speed per lvl\": 1.59,\n        \"Base HP\": 590,\n        \"Base armor\": 22,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 469,\n        \"HP per lvl\": 102,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 21,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 340,\n        \"Name\": \"Vel'Koz\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support,Middle\",\n        \"Tags\": \"Mage,Support\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.45,\n        \"Attack damage\": 54,\n        \"Attack damage per lvl\": 2.75,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.669,\n        \"Attack speed per lvl\": 1,\n        \"Base HP\": 590,\n        \"Base armor\": 23,\n        \"Base magic resistance\": 28,\n        \"Base mana\": 490,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 6.5,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 32,\n        \"Mana regeneration\": 6,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 335,\n        \"Name\": \"Vex\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Mage\"\n    },\n    {\n        \"AS ratio\": 0.644,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 63,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.644,\n        \"Attack speed per lvl\": 2,\n        \"Base HP\": 655,\n        \"Base armor\": 30,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 295,\n        \"HP per lvl\": 99,\n        \"HP regeneration\": 10,\n        \"HP regeneration per lvl\": 1,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 65,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.65,\n        \"Movement speed\": 340,\n        \"Name\": \"Vi\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Fighter,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.658,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 57,\n        \"Attack damage per lvl\": 3.5,\n        \"Attack range\": 200,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 2.5,\n        \"Base HP\": 630,\n        \"Base armor\": 34,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 0,\n        \"HP per lvl\": 109,\n        \"HP regeneration\": 7,\n        \"HP regeneration per lvl\": 0.7,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 345,\n        \"Name\": \"Viego\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Fighter,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.658,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 53,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 525,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 2.11,\n        \"Base HP\": 600,\n        \"Base armor\": 23,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 405,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 8,\n        \"HP regeneration per lvl\": 0.65,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 45,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 335,\n        \"Name\": \"Viktor\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Mage\"\n    },\n    {\n        \"AS ratio\": 0.658,\n        \"Armor per lvl\": 4.5,\n        \"Attack damage\": 55,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 450,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 2,\n        \"Base HP\": 607,\n        \"Base armor\": 27,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 2,\n        \"HP per lvl\": 110,\n        \"HP regeneration\": 7,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 330,\n        \"Name\": \"Vladimir\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Crimson Rush\",\n        \"Role\": \"Middle,Top\",\n        \"Tags\": \"Mage,Fighter\"\n    },\n    {\n        \"AS ratio\": 0.7,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 60,\n        \"Attack damage per lvl\": 3.5,\n        \"Attack range\": 150,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2,\n        \"Base HP\": 650,\n        \"Base armor\": 31,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 350,\n        \"HP per lvl\": 104,\n        \"HP regeneration\": 9,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 70,\n        \"Mana regeneration\": 6.25,\n        \"Mana regeneration per lvl\": 0.5,\n        \"Movement speed\": 340,\n        \"Name\": \"Volibear\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top,Jungle\",\n        \"Tags\": \"Fighter,Tank\"\n    },\n    {\n        \"AS ratio\": 0.638,\n        \"Armor per lvl\": 4.4,\n        \"Attack damage\": 65,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.638,\n        \"Attack speed per lvl\": 2.3,\n        \"Base HP\": 620,\n        \"Base armor\": 33,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 280,\n        \"HP per lvl\": 99,\n        \"HP regeneration\": 4,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 35,\n        \"Mana regeneration\": 7.45,\n        \"Mana regeneration per lvl\": 0.6,\n        \"Movement speed\": 335,\n        \"Name\": \"Warwick\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle,Top\",\n        \"Tags\": \"Fighter,Tank\"\n    },\n    {\n        \"AS ratio\": 0.658,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 66,\n        \"Attack damage per lvl\": 3.5,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.69,\n        \"Attack speed per lvl\": 3,\n        \"Base HP\": 610,\n        \"Base armor\": 31,\n        \"Base magic resistance\": 28,\n        \"Base mana\": 300,\n        \"HP per lvl\": 99,\n        \"HP regeneration\": 3.5,\n        \"HP regeneration per lvl\": 0.65,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 65,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 340,\n        \"Name\": \"Wukong\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle,Top\",\n        \"Tags\": \"Fighter,Tank\"\n    },\n    {\n        \"AS ratio\": 0.658,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 60,\n        \"Attack damage per lvl\": 3.5,\n        \"Attack range\": 525,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 3.9,\n        \"Base HP\": 630,\n        \"Base armor\": 25,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 340,\n        \"HP per lvl\": 107,\n        \"HP regeneration\": 3.25,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 40,\n        \"Mana regeneration\": 8.25,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 330,\n        \"Name\": \"Xayah\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom\",\n        \"Tags\": \"Marksman\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 55,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 525,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 1.36,\n        \"Base HP\": 596,\n        \"Base armor\": 22,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 400,\n        \"HP per lvl\": 106,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 22,\n        \"Mana regeneration\": 6.85,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 340,\n        \"Name\": \"Xerath\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle,Support\",\n        \"Tags\": \"Mage,Support\"\n    },\n    {\n        \"AS ratio\": 0.645,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 63,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.645,\n        \"Attack speed per lvl\": 3.5,\n        \"Base HP\": 640,\n        \"Base armor\": 35,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 274,\n        \"HP per lvl\": 106,\n        \"HP regeneration\": 8,\n        \"HP regeneration per lvl\": 0.7,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 55,\n        \"Mana regeneration\": 7.25,\n        \"Mana regeneration per lvl\": 0.45,\n        \"Movement speed\": 345,\n        \"Name\": \"Xin Zhao\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Jungle\",\n        \"Tags\": \"Fighter,Tank\"\n    },\n    {\n        \"AS ratio\": 0.67,\n        \"Armor per lvl\": 4.6,\n        \"Attack damage\": 60,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.697,\n        \"Attack speed per lvl\": 3.5,\n        \"Base HP\": 590,\n        \"Base armor\": 30,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 100,\n        \"HP per lvl\": 110,\n        \"HP regeneration\": 6.5,\n        \"HP regeneration per lvl\": 0.9,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 345,\n        \"Name\": \"Yasuo\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Flow\",\n        \"Role\": \"Top,Middle,Bottom\",\n        \"Tags\": \"Fighter,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.6,\n        \"Attack damage\": 60,\n        \"Attack damage per lvl\": 2,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 3.5,\n        \"Base HP\": 620,\n        \"Base armor\": 33,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 500,\n        \"HP per lvl\": 105,\n        \"HP regeneration\": 7.5,\n        \"HP regeneration per lvl\": 0.75,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 345,\n        \"Name\": \"Yone\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Flow\",\n        \"Role\": \"Top,Middle\",\n        \"Tags\": \"Fighter,Assassin\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5.2,\n        \"Attack damage\": 62,\n        \"Attack damage per lvl\": 5,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 2,\n        \"Base HP\": 650,\n        \"Base armor\": 39,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 300,\n        \"HP per lvl\": 114,\n        \"HP regeneration\": 8,\n        \"HP regeneration per lvl\": 0.8,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 60,\n        \"Mana regeneration\": 7.5,\n        \"Mana regeneration per lvl\": 0.75,\n        \"Movement speed\": 340,\n        \"Name\": \"Yorick\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Top\",\n        \"Tags\": \"Fighter,Tank\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 49,\n        \"Attack damage per lvl\": 3.1,\n        \"Attack range\": 425,\n        \"Attack speed\": 0.625,\n        \"Attack speed per lvl\": 1,\n        \"Base HP\": 500,\n        \"Base armor\": 25,\n        \"Base magic resistance\": 25,\n        \"Base mana\": 440,\n        \"HP per lvl\": 69,\n        \"HP regeneration\": 5,\n        \"HP regeneration per lvl\": 0.55,\n        \"Magic resistance per lvl\": 1.1,\n        \"Mana per lvl\": 45,\n        \"Mana regeneration\": 10,\n        \"Mana regeneration per lvl\": 0.4,\n        \"Movement speed\": 330,\n        \"Name\": \"Yuumi\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Support,Mage\"\n    },\n    {\n        \"AS ratio\": 0.638,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 60,\n        \"Attack damage per lvl\": 3.4,\n        \"Attack range\": 175,\n        \"Attack speed\": 0.736,\n        \"Attack speed per lvl\": 1.6,\n        \"Base HP\": 685,\n        \"Base armor\": 33,\n        \"Base magic resistance\": 32,\n        \"Base mana\": 0,\n        \"HP per lvl\": 109,\n        \"HP regeneration\": 5,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 0,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 340,\n        \"Name\": \"Zac\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"\",\n        \"Role\": \"Jungle,Top,Support\",\n        \"Tags\": \"Tank,Fighter\"\n    },\n    {\n        \"AS ratio\": 0.651,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 63,\n        \"Attack damage per lvl\": 3.4,\n        \"Attack range\": 125,\n        \"Attack speed\": 0.651,\n        \"Attack speed per lvl\": 3.3,\n        \"Base HP\": 654,\n        \"Base armor\": 32,\n        \"Base magic resistance\": 29,\n        \"Base mana\": 200,\n        \"HP per lvl\": 99,\n        \"HP regeneration\": 7,\n        \"HP regeneration per lvl\": 0.65,\n        \"Magic resistance per lvl\": 2.05,\n        \"Mana per lvl\": 0,\n        \"Mana regeneration\": 50,\n        \"Mana regeneration per lvl\": 0,\n        \"Movement speed\": 345,\n        \"Name\": \"Zed\",\n        \"Range type\": \"Melee\",\n        \"Resourse type\": \"Energy\",\n        \"Role\": \"Middle,Jungle\",\n        \"Tags\": \"Assassin\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 56,\n        \"Attack damage per lvl\": 2,\n        \"Attack range\": 500,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 2,\n        \"Base HP\": 600,\n        \"Base armor\": 24,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 250,\n        \"HP per lvl\": 110,\n        \"HP regeneration\": 3.25,\n        \"HP regeneration per lvl\": 0.7,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 45,\n        \"Mana regeneration\": 6,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 330,\n        \"Name\": \"Zeri\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom\",\n        \"Tags\": \"Marksman\"\n    },\n    {\n        \"AS ratio\": 0.656,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 55,\n        \"Attack damage per lvl\": 3.1,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.656,\n        \"Attack speed per lvl\": 2,\n        \"Base HP\": 606,\n        \"Base armor\": 21,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 480,\n        \"HP per lvl\": 106,\n        \"HP regeneration\": 6.5,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 23.5,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 325,\n        \"Name\": \"Ziggs\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Bottom,Middle\",\n        \"Tags\": \"Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 5,\n        \"Attack damage\": 52,\n        \"Attack damage per lvl\": 3,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 2.13,\n        \"Base HP\": 574,\n        \"Base armor\": 24,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 452,\n        \"HP per lvl\": 96,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 50,\n        \"Mana regeneration\": 11.35,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 335,\n        \"Name\": \"Zilean\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Support,Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.7,\n        \"Attack damage\": 58,\n        \"Attack damage per lvl\": 3.3,\n        \"Attack range\": 550,\n        \"Attack speed\": 0.658,\n        \"Attack speed per lvl\": 2.5,\n        \"Base HP\": 630,\n        \"Base armor\": 21,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 425,\n        \"HP per lvl\": 106,\n        \"HP regeneration\": 7.5,\n        \"HP regeneration per lvl\": 0.6,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 25,\n        \"Mana regeneration\": 8,\n        \"Mana regeneration per lvl\": 0.65,\n        \"Movement speed\": 340,\n        \"Name\": \"Zoe\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Middle\",\n        \"Tags\": \"Mage\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 53,\n        \"Attack damage per lvl\": 3.2,\n        \"Attack range\": 575,\n        \"Attack speed\": 0.681,\n        \"Attack speed per lvl\": 2.11,\n        \"Base HP\": 574,\n        \"Base armor\": 29,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 418,\n        \"HP per lvl\": 93,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 25,\n        \"Mana regeneration\": 7,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 340,\n        \"Name\": \"Zyra\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Mage,Support\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 53,\n        \"Attack damage per lvl\": 3.2,\n        \"Attack range\": 575,\n        \"Attack speed\": 0.681,\n        \"Attack speed per lvl\": 2.11,\n        \"Base HP\": 574,\n        \"Base armor\": 29,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 418,\n        \"HP per lvl\": 93,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 25,\n        \"Mana regeneration\": 7,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 340,\n        \"Name\": \"Teste\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Mid\",\n        \"Tags\": \"Mage,Support\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 53,\n        \"Attack damage per lvl\": 3.2,\n        \"Attack range\": 575,\n        \"Attack speed\": 0.681,\n        \"Attack speed per lvl\": 2.11,\n        \"Base HP\": 574,\n        \"Base armor\": 29,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 418,\n        \"HP per lvl\": 93,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 25,\n        \"Mana regeneration\": 7,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 340,\n        \"Name\": \"Teste123\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Mage,Support\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 53,\n        \"Attack damage per lvl\": 3.2,\n        \"Attack range\": 575,\n        \"Attack speed\": 0.681,\n        \"Attack speed per lvl\": 2.11,\n        \"Base HP\": 574,\n        \"Base armor\": 29,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 418,\n        \"HP per lvl\": 93,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 25,\n        \"Mana regeneration\": 7,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 340,\n        \"Name\": \"Teste1234\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Mage,Support\"\n    },\n    {\n        \"AS ratio\": 0.625,\n        \"Armor per lvl\": 4.2,\n        \"Attack damage\": 53,\n        \"Attack damage per lvl\": 3.2,\n        \"Attack range\": 575,\n        \"Attack speed\": 0.681,\n        \"Attack speed per lvl\": 2.11,\n        \"Base HP\": 574,\n        \"Base armor\": 29,\n        \"Base magic resistance\": 30,\n        \"Base mana\": 418,\n        \"HP per lvl\": 93,\n        \"HP regeneration\": 5.5,\n        \"HP regeneration per lvl\": 0.5,\n        \"Magic resistance per lvl\": 1.3,\n        \"Mana per lvl\": 25,\n        \"Mana regeneration\": 7,\n        \"Mana regeneration per lvl\": 0.8,\n        \"Movement speed\": 340,\n        \"Name\": \"Teste1238\",\n        \"Range type\": \"Ranged\",\n        \"Resourse type\": \"Mana\",\n        \"Role\": \"Support\",\n        \"Tags\": \"Mage,Support\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Create Champion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Name\": \"Teste123\",\n    \"Tags\": \"Mage,Support\",\n    \"Role\": \"Support\",\n    \"Range type\": \"Ranged\",\n    \"Resourse type\": \"Mana\",\n    \"Base HP\": 574,\n    \"HP per lvl\": 93,\n    \"Base mana\": 418,\n    \"Mana per lvl\": 25,\n    \"Movement speed\": 340,\n    \"Base armor\": 29,\n    \"Armor per lvl\": 4.2,\n    \"Base magic resistance\": 30,\n    \"Magic resistance per lvl\": 1.3,\n    \"Attack range\": 575,\n    \"HP regeneration\": 5.5,\n    \"HP regeneration per lvl\": 0.5,\n    \"Mana regeneration\": 7,\n    \"Mana regeneration per lvl\": 0.8,\n    \"Attack damage\": 53,\n    \"Attack damage per lvl\": 3.2,\n    \"Attack speed per lvl\": 2.11,\n    \"Attack speed\": 0.681,\n    \"AS ratio\": 0.625\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/champions",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"champions"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": [
+				{
+					"name": "Create Champion Sucess",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Name\": \"Teste1234\",\n    \"Tags\": \"Mage,Support\",\n    \"Role\": \"Support\",\n    \"Range type\": \"Ranged\",\n    \"Resourse type\": \"Mana\",\n    \"Base HP\": 574,\n    \"HP per lvl\": 93,\n    \"Base mana\": 418,\n    \"Mana per lvl\": 25,\n    \"Movement speed\": 340,\n    \"Base armor\": 29,\n    \"Armor per lvl\": 4.2,\n    \"Base magic resistance\": 30,\n    \"Magic resistance per lvl\": 1.3,\n    \"Attack range\": 575,\n    \"HP regeneration\": 5.5,\n    \"HP regeneration per lvl\": 0.5,\n    \"Mana regeneration\": 7,\n    \"Mana regeneration per lvl\": 0.8,\n    \"Attack damage\": 53,\n    \"Attack damage per lvl\": 3.2,\n    \"Attack speed per lvl\": 2.11,\n    \"Attack speed\": 0.681,\n    \"AS ratio\": 0.625\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/champions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"champions"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Sep 2024 15:06:05 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "269"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8c6af5086fc187ec-POA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "c7351e92-e7f8-4c0f"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"AS ratio\": 0.625,\n    \"Armor per lvl\": 4.2,\n    \"Attack damage\": 53,\n    \"Attack damage per lvl\": 3.2,\n    \"Attack range\": 575,\n    \"Attack speed\": 0.681,\n    \"Attack speed per lvl\": 2.11,\n    \"Base HP\": 574,\n    \"Base armor\": 29,\n    \"Base magic resistance\": 30,\n    \"Base mana\": 418,\n    \"HP per lvl\": 93,\n    \"HP regeneration\": 5.5,\n    \"HP regeneration per lvl\": 0.5,\n    \"Magic resistance per lvl\": 1.3,\n    \"Mana per lvl\": 25,\n    \"Mana regeneration\": 7,\n    \"Mana regeneration per lvl\": 0.8,\n    \"Movement speed\": 340,\n    \"Name\": \"Teste1234\",\n    \"Range type\": \"Ranged\",\n    \"Resourse type\": \"Mana\",\n    \"Role\": \"Support\",\n    \"Tags\": \"Mage,Support\"\n}"
+				},
+				{
+					"name": "Create Champion Error Campeão ja cadastrado",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Name\": \"Zyra\",\n    \"Tags\": \"Mage,Support\",\n    \"Role\": \"Support\",\n    \"Range type\": \"Ranged\",\n    \"Resourse type\": \"Mana\",\n    \"Base HP\": 574,\n    \"HP per lvl\": 93,\n    \"Base mana\": 418,\n    \"Mana per lvl\": 25,\n    \"Movement speed\": 340,\n    \"Base armor\": 29,\n    \"Armor per lvl\": 4.2,\n    \"Base magic resistance\": 30,\n    \"Magic resistance per lvl\": 1.3,\n    \"Attack range\": 575,\n    \"HP regeneration\": 5.5,\n    \"HP regeneration per lvl\": 0.5,\n    \"Mana regeneration\": 7,\n    \"Mana regeneration per lvl\": 0.8,\n    \"Attack damage\": 53,\n    \"Attack damage per lvl\": 3.2,\n    \"Attack speed per lvl\": 2.11,\n    \"Attack speed\": 0.681,\n    \"AS ratio\": 0.625\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/champions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"champions"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Sep 2024 15:05:50 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "47"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8c6af4a7ffca87ec-POA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "893fb619-8185-4f78"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"erro\": \"Campeão já cadastrado\"\n}"
+				},
+				{
+					"name": "Create Champion error faltando campos obrigatórios",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Name\": \"Teste123\",\n    \"Tags\": \"Mage,Support\",\n    \"Role\": \"Support\",\n    \"Range type\": \"Ranged\",\n    \"Resourse type\": \"Mana\",\n    \"Base HP\": 574,\n    \"HP per lvl\": 93,\n    \"Base mana\": 418,\n    \"Mana per lvl\": 25,\n    \"Movement speed\": 340,\n    \"Base armor\": 29,\n    \"Armor per lvl\": 4.2,\n    \"Base magic resistance\": 30\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/champions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"champions"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Sep 2024 15:06:50 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "167"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8c6af6229f3087ec-POA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "74475d5d-2549-442e"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"erro\": \"Campeão não possui os campos obrigatórios: ['Magic resistance per lvl', 'Attack range', 'HP regeneration', 'HP regeneration per lvl', 'Mana regeneration', 'Mana regeneration per lvl', 'Attack damage', 'Attack damage per lvl', 'Attack speed per lvl', 'Attack speed', 'AS ratio']\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful DELETE request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/champions/Teste",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"champions",
+						"Teste"
+					]
+				},
+				"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+			},
+			"response": [
+				{
+					"name": "Delete Champion sucess",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/champions/Teste",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"champions",
+								"Teste"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Sep 2024 15:09:18 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "266"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8c6af9ba98d187ec-POA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "7768acb9-6732-4d12"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"AS ratio\": 0.625,\n    \"Armor per lvl\": 4.2,\n    \"Attack damage\": 53,\n    \"Attack damage per lvl\": 3.2,\n    \"Attack range\": 575,\n    \"Attack speed\": 0.681,\n    \"Attack speed per lvl\": 2.11,\n    \"Base HP\": 574,\n    \"Base armor\": 29,\n    \"Base magic resistance\": 30,\n    \"Base mana\": 418,\n    \"HP per lvl\": 93,\n    \"HP regeneration\": 5.5,\n    \"HP regeneration per lvl\": 0.5,\n    \"Magic resistance per lvl\": 1.3,\n    \"Mana per lvl\": 25,\n    \"Mana regeneration\": 7,\n    \"Mana regeneration per lvl\": 0.8,\n    \"Movement speed\": 340,\n    \"Name\": \"Teste\",\n    \"Range type\": \"Ranged\",\n    \"Resourse type\": \"Mana\",\n    \"Role\": \"Mid\",\n    \"Tags\": \"Mage,Support\"\n}"
+				},
+				{
+					"name": "Delete Champion error, champion not found",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/champions/Teste",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"champions",
+								"Teste"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Sep 2024 15:09:35 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8c6afa28489687ec-POA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "d2f26ec7-fa9c-4c5e"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"erro\": \"Campeão não encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update champion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Tags\": \"Mage,Support\",\n    \"Role\": \"Support\",\n    \"Range type\": \"Ranged\",\n    \"Resourse type\": \"Mana\",\n    \"Base HP\": 574,\n    \"HP per lvl\": 93,\n    \"Base mana\": 418,\n    \"Mana per lvl\": 25,\n    \"Movement speed\": 340,\n    \"Base armor\": 29,\n    \"Armor per lvl\": 4.2,\n    \"Base magic resistance\": 30,\n    \"Magic resistance per lvl\": 1.3,\n    \"Attack range\": 575,\n    \"HP regeneration\": 5.5,\n    \"HP regeneration per lvl\": 0.5,\n    \"Mana regeneration\": 7,\n    \"Mana regeneration per lvl\": 0.8,\n    \"Attack damage\": 53,\n    \"Attack damage per lvl\": 3.2,\n    \"Attack speed per lvl\": 2.11,\n    \"Attack speed\": 0.681,\n    \"AS ratio\": 0.625\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/champions/Teste1234",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"champions",
+						"Teste1234"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update champion error champion not found",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Name\": \"Teste1234\",\n    \"Tags\": \"Mage,Support\",\n    \"Role\": \"Support\",\n    \"Range type\": \"Ranged\",\n    \"Resourse type\": \"Mana\",\n    \"Base HP\": 574,\n    \"HP per lvl\": 93,\n    \"Base mana\": 418,\n    \"Mana per lvl\": 25,\n    \"Movement speed\": 340,\n    \"Base armor\": 29,\n    \"Armor per lvl\": 4.2,\n    \"Base magic resistance\": 30,\n    \"Magic resistance per lvl\": 1.3,\n    \"Attack range\": 575,\n    \"HP regeneration\": 5.5,\n    \"HP regeneration per lvl\": 0.5,\n    \"Mana regeneration\": 7,\n    \"Mana regeneration per lvl\": 0.8,\n    \"Attack damage\": 53,\n    \"Attack damage per lvl\": 3.2,\n    \"Attack speed per lvl\": 2.11,\n    \"Attack speed\": 0.681,\n    \"AS ratio\": 0.625\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/champions/Teste",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"champions",
+								"Teste"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Sep 2024 15:10:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8c6afbb90e0dfbae-POA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "d186c45e-fedb-4d89"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"erro\": \"Campeão não encontrado\"\n}"
+				},
+				{
+					"name": "Update champion error not update name",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Name\": \"Teste1234\",\n    \"Tags\": \"Mage,Support\",\n    \"Role\": \"Support\",\n    \"Range type\": \"Ranged\",\n    \"Resourse type\": \"Mana\",\n    \"Base HP\": 574,\n    \"HP per lvl\": 93,\n    \"Base mana\": 418,\n    \"Mana per lvl\": 25,\n    \"Movement speed\": 340,\n    \"Base armor\": 29,\n    \"Armor per lvl\": 4.2,\n    \"Base magic resistance\": 30,\n    \"Magic resistance per lvl\": 1.3,\n    \"Attack range\": 575,\n    \"HP regeneration\": 5.5,\n    \"HP regeneration per lvl\": 0.5,\n    \"Mana regeneration\": 7,\n    \"Mana regeneration per lvl\": 0.8,\n    \"Attack damage\": 53,\n    \"Attack damage per lvl\": 3.2,\n    \"Attack speed per lvl\": 2.11,\n    \"Attack speed\": 0.681,\n    \"AS ratio\": 0.625\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/champions/Teste1234",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"champions",
+								"Teste1234"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Sep 2024 15:11:16 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "67"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8c6afc9b9c7bfbae-POA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "83fde112-a023-4e05"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"erro\": \"Não é possível alterar o nome do campeão\"\n}"
+				},
+				{
+					"name": "Update champion sucess",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Tags\": \"Mage,Support\",\n    \"Role\": \"Support\",\n    \"Range type\": \"Ranged\",\n    \"Resourse type\": \"Mana\",\n    \"Base HP\": 574,\n    \"HP per lvl\": 93,\n    \"Base mana\": 418,\n    \"Mana per lvl\": 25,\n    \"Movement speed\": 340,\n    \"Base armor\": 29,\n    \"Armor per lvl\": 4.2,\n    \"Base magic resistance\": 30,\n    \"Magic resistance per lvl\": 1.3,\n    \"Attack range\": 575,\n    \"HP regeneration\": 5.5,\n    \"HP regeneration per lvl\": 0.5,\n    \"Mana regeneration\": 7,\n    \"Mana regeneration per lvl\": 0.8,\n    \"Attack damage\": 53,\n    \"Attack damage per lvl\": 3.2,\n    \"Attack speed per lvl\": 2.11,\n    \"Attack speed\": 0.681,\n    \"AS ratio\": 0.625\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/champions/Teste1234",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"champions",
+								"Teste1234"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 21 Sep 2024 15:11:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "269"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8c6afd34cba9fbae-POA"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "rndr-id",
+							"value": "ccb51526-0db5-47b6"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "gunicorn"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"AS ratio\": 0.625,\n    \"Armor per lvl\": 4.2,\n    \"Attack damage\": 53,\n    \"Attack damage per lvl\": 3.2,\n    \"Attack range\": 575,\n    \"Attack speed\": 0.681,\n    \"Attack speed per lvl\": 2.11,\n    \"Base HP\": 574,\n    \"Base armor\": 29,\n    \"Base magic resistance\": 30,\n    \"Base mana\": 418,\n    \"HP per lvl\": 93,\n    \"HP regeneration\": 5.5,\n    \"HP regeneration per lvl\": 0.5,\n    \"Magic resistance per lvl\": 1.3,\n    \"Mana per lvl\": 25,\n    \"Mana regeneration\": 7,\n    \"Mana regeneration per lvl\": 0.8,\n    \"Movement speed\": 340,\n    \"Name\": \"Teste1234\",\n    \"Range type\": \"Ranged\",\n    \"Resourse type\": \"Mana\",\n    \"Role\": \"Support\",\n    \"Tags\": \"Mage,Support\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:5000"
+		}
+	]
+}

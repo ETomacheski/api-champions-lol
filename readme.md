@@ -24,7 +24,7 @@ O projeto está disponível no seguinte endereço web: [https://api-champions-lo
 
 ## Collection do Postman
 
-Você pode encontrar a collection do Postman para testar a API no diretório `./postman`.
+Você pode encontrar a collection do Postman para testar a API no diretório `./Champios api.postman_collection`.
 
 ## Notebook de Utilização da API
 
