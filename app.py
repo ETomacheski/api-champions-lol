@@ -1,14 +1,6 @@
 from flask import Flask, request, jsonify
-import utils_lol  # type: ignore # Adjust the import based on the actual content of utils-lol.py
+import utils_lol
 app = Flask(__name__)
-
-#Base de dados com países
-COUNTRIES = [
-    {'id':1,'name':'Brasil', 'capital': 'Brasilia'},
-    {'id':2,'name':'Estados Unidos', 'capital': 'Washington' },
-    {'id':3,'name':'Argentina', 'capital': 'Buenos Aires' }
-]
-max_id = 3
 
 # Busca todos os campeões
 @app.get("/champions")
