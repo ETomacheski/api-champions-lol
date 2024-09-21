@@ -32,7 +32,7 @@ def updateChampions(name):
         response = utils_lol.updateChampion(name, champion)
         if 'erro' in response:
             return response, 400
-        return response, 201
+        return response, 200
     return {"erro":"Formato deve ser JSON"}, 415
 
 #Remove campeão pelo nome passado como variável na URL
